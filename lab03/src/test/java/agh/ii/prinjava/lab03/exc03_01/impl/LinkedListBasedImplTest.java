@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LinkedListBasedImplTest {
@@ -24,6 +25,33 @@ class LinkedListBasedImplTest {
     void newQueueIsEmpty() {
         assertTrue(queueOfInts.isEmpty());
     }
-    LinkedListBasedImpl l = new LinkedListBasedImpl();
-    QueueOfInts q = new LinkedListBasedImpl();
+
+    @Test
+    void testPushandPeeks01(){
+        LinkedListBasedImpl q = new LinkedListBasedImpl();
+        q.enqueue(1);
+        assertEquals(1,q.peek());
+        assertEquals(1,q.numOfElems());
+    }
+
+    @Test
+    void testDequeue01(){
+        LinkedListBasedImpl q = new LinkedListBasedImpl();
+        q.enqueue(1);
+        assertEquals(1,q.dequeue());
+    }
+
+    @Test
+    void HardQueue(){
+        LinkedListBasedImpl q = new LinkedListBasedImpl();
+        for (int i = 0; i < 100; i++) {
+            q.enqueue(i);
+        }
+        int cpt = 0;
+        while (!q.isEmpty()){
+            assertEquals(cpt,q.dequeue());
+            cpt++;
+        }
+    }
+
 }

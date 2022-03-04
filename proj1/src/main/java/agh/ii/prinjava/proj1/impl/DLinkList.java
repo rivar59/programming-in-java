@@ -7,4 +7,9 @@ public class DLinkList<E> {
         Node<T> next;
         Node<T> prev;
     }
+
+    private Node first = null;
+    private Node last = null;
+
+    private int numOfElems = 0;
 }

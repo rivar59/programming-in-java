@@ -152,7 +152,13 @@ public class Main {
         //demo2(); // <- checked exceptions have to be handled
         demo3();
         demo4();
-        //demo5(); // <- checked exceptions have to be handled
+        try {
+            demo5();
+        }
+        catch (CheckedEx2 e) {
+            System.out.println("Coucou");
+        }
+        // <- checked exceptions have to be handled
         demo6(); // mo exception detected: since m3() -> m2(1) -> no exception
         demo7();
     }

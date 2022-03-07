@@ -1,8 +1,10 @@
 package agh.ii.prinjava.proj1.impl;
 
+import agh.ii.prinjava.proj1.MyQueue;
 import agh.ii.prinjava.proj1.MyStack;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,5 +17,68 @@ class MyStackDLLBImplTest {
 
     @AfterEach
     void tearDown() {
+    }
+
+    /**
+     * Creation of the astack and if it is empty
+     */
+    @Test
+    void creation(){
+        MyStack<Integer> s = MyStack.create();
+        assertTrue(s.isEmpty());
+    }
+
+    /**
+     *
+     * Add on element to the Stack and check the number
+     *
+     */
+    @Test
+    void enqueue1element(){
+        MyStack<Integer> s = MyStack.create();
+        s.push(10);
+        assertEquals(1,s.numOfElems());
+    }
+
+    /**
+     *
+     * Add on element to the Stack and got it
+     *
+     */
+    @Test
+    void enqueue1andpeek(){
+        MyStack<Integer> s = MyStack.create();
+        s.push(10);
+        assertEquals(10,s.peek());
+    }
+
+    /**
+     * Just enqueue and dequeue one element
+     */
+    @Test
+    void enqueue1andqeueue(){
+        MyStack<Integer> s = MyStack.create();
+        s.push(10);
+        assertEquals(10,s.peek());
+        int a = (int) s.pop();
+        assertEquals(10,a);
+    }
+
+    /**
+     * add enqueue and dequeue with test
+     */
+    @Test
+    void hardqueue(){
+        MyStack<Integer> s = MyStack.create();
+        for (int i = 0; i < 50; i++) {
+            s.push(i);
+            assertEquals(i,s.peek());
+        }
+        int add = 49;
+        while (!s.isEmpty()){
+            int ret = (int) s.pop();
+            assertEquals(add,ret);
+            add -= 1;
+        }
     }
 }

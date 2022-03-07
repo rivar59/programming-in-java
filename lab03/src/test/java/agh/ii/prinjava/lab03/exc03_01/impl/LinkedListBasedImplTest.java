@@ -13,14 +13,6 @@ class LinkedListBasedImplTest {
     // Create an empty queue
     private final QueueOfInts queueOfInts = QueueOfIntsFtry.create(QueueOfIntsFtry.Impln.L_LIST_B);
 
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
     @Test
     void newQueueIsEmpty() {
         assertTrue(queueOfInts.isEmpty());

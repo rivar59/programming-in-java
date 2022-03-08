@@ -123,6 +123,7 @@ public class DLinkList<E> {
         if (first == last)
             last = null;
         first = first.next;
+        first.prev = null;
         numOfElems--;
         return (E)ret.elem;
     }
@@ -140,6 +141,7 @@ public class DLinkList<E> {
         if (last == null)
             first = null;
         last = last.prev;
+        last.next = null;
         numOfElems--;
         return (E)ret.elem;
     }

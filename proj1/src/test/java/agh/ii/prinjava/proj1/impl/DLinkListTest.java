@@ -152,6 +152,13 @@ class DLinkListTest {
         dl.addFirst(0);
         dl.addLast(99);
         System.out.println(dl.toString());
+        dl.removeLast();
+        dl.removeFirst();
+        dl.removeFirst();
+        dl.removeLast();
+        dl.removeLast();
+        System.out.println(dl.getNumOfElems());
+        System.out.println(dl.toString());
     }
 
 

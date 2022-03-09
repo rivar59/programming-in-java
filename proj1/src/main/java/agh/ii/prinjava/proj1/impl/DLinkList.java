@@ -120,10 +120,15 @@ public class DLinkList<E> {
         if (isempty())
             return null;
         Node ret = first;
-        if (first == last)
+        if (first == last) {
             last = null;
-        first = first.next;
-        first.prev = null;
+            first = null;
+        }
+        else{
+            first = first.next;
+            first.prev = null;
+        }
+
         numOfElems--;
         return (E)ret.elem;
     }
@@ -138,10 +143,15 @@ public class DLinkList<E> {
         if (isempty())
             return null;
         Node ret = last;
-        if (last == null)
+        if (last == first) {
             first = null;
-        last = last.prev;
-        last.next = null;
+            last = null;
+        }
+        else{
+
+            last = last.prev;
+            last.next = null;
+        }
         numOfElems--;
         return (E)ret.elem;
     }

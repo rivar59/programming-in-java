@@ -106,6 +106,46 @@ class DLinkListTest {
 
     /**
      *
+     * Peek first
+     *
+     */
+    @Test
+    void pushBackandPeekFirst() {
+        DLinkList dl = new DLinkList();
+        dl.addLast(5);
+        assertEquals(5,dl.peekFirst());
+    }
+
+    /**
+     *
+     * Peek last
+     *
+     */
+    @Test
+    void pushBackandPeekLast() {
+        DLinkList dl = new DLinkList();
+        dl.addLast(5);
+        assertEquals(5,dl.peekLast());
+    }
+
+    /**
+     *
+     * Peek with some elements
+     *
+     */
+    @Test
+    void pushTwoandPeek() {
+        DLinkList dl = new DLinkList();
+        dl.addLast(5);
+        dl.addFirst(1);
+        dl.addLast(0);
+        assertEquals(0,dl.peekLast());
+        assertEquals(1,dl.peekFirst());
+    }
+
+
+    /**
+     *
      * We push in the back of the list and remove from it
      */
     @Test

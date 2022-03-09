@@ -59,7 +59,6 @@ class MyStackDLLBImplTest {
     void enqueue1andqeueue(){
         MyStack<Integer> s = MyStack.create();
         s.push(10);
-        assertEquals(10,s.peek());
         int a = (int) s.pop();
         assertEquals(10,a);
     }
@@ -75,6 +74,7 @@ class MyStackDLLBImplTest {
             assertEquals(i,s.peek());
         }
         int add = 49;
+        assertEquals(49,s.peek());
         while (!s.isEmpty()){
             int ret = (int) s.pop();
             assertEquals(add,ret);

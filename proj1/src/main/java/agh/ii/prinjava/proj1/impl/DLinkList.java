@@ -191,9 +191,9 @@ public class DLinkList<E> {
     }
 
     /**
-     * Allow the acces to the data of the first element
+     * Allow the access to the data of the first element
      *
-     * TODO : make a copie of this element to protect this
+     * TODO : make a copy of this element to protect this
      *
      * @return the data of the first element
      */

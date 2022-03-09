@@ -19,7 +19,7 @@ class DLinkListTest {
 
     /**
      *
-     *Creating a list and test if this one is empty
+     * Creating a list and test if it is empty
      *
      */
     @Test
@@ -30,8 +30,8 @@ class DLinkListTest {
 
     /**
      *
-     * Creating a dlist and adding an element at the first position
-     * Checking the number of element
+     * Creating a DLinklist and adding an element at the first position
+     * Checking the number of elements
      *
      */
     @Test
@@ -42,7 +42,7 @@ class DLinkListTest {
     }
 
     /**
-     *Add one lement in the front and remove from the last position
+     *Add one element in the front and remove from the last position
      *
      */
     @Test

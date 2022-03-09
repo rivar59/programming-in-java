@@ -6,9 +6,9 @@ import agh.ii.prinjava.proj1.MyQueue;
  * FIFO data
  * First in, First out
  *
- * So we use the DlinkList as a corridor
- * We enqueue element at the beginning of the DlinkList
- * We dequeue element at the end of the DLinkList
+ * We use the DLinkList as a corridor
+ * We enqueue an element at the beginning of the DLinkList
+ * We dequeue an element at the end of the DLinkList
  *
  * @param <E> Generic type
  */
@@ -20,10 +20,9 @@ public class MyQueueDLLBImpl<E> implements MyQueue<E> {
     }
 
     /**
+     * Add an element to the beginning of the DLinkList
      *
-     * Add an element to the beginning of the Dlist
-     *
-     * @param x parameter added to the queue
+     * @param x : parameter added to the queue
      */
     @Override
     public void enqueue(E x) {
@@ -33,7 +32,7 @@ public class MyQueueDLLBImpl<E> implements MyQueue<E> {
     /**
      * Dequeue the first element which was enqueued
      *
-     * @return one element
+     * @return the dequeued element
      */
     @Override
     public E dequeue() {
@@ -41,9 +40,9 @@ public class MyQueueDLLBImpl<E> implements MyQueue<E> {
     }
 
     /**
-     * Allow acces to the number of element in the queue
+     * Allow access to the number of elements in the queue
      *
-     * @return number of element
+     * @return number of elements
      */
     @Override
     public int numOfElems() {
@@ -51,9 +50,9 @@ public class MyQueueDLLBImpl<E> implements MyQueue<E> {
     }
 
     /**
-     * allow to know which element will be enqueued next time
+     * Allow knowing which element will be enqueued next time
      *
-     * @return the data of the next element to be enqueue
+     * @return the data of the next element to be enqueued
      */
     @Override
     public E peek() {

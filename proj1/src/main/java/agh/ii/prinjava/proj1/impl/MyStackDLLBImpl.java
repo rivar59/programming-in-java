@@ -3,7 +3,9 @@ package agh.ii.prinjava.proj1.impl;
 import agh.ii.prinjava.proj1.MyStack;
 
 /**
- * FILO
+ * FILO data
+ * First in, Last out
+ *
  * We will push element in the front of the DList
  * And pop element from the front of the Dlist
  *
@@ -17,9 +19,9 @@ public class MyStackDLLBImpl<E> implements MyStack<E> {
     }
 
     /**
-     * Take off the last element push in the stack
+     * Pop the last element pushed in the stack
      *
-     * @return the last element push
+     * @return the popped element
      */
     @Override
     public E pop() {
@@ -27,7 +29,7 @@ public class MyStackDLLBImpl<E> implements MyStack<E> {
     }
 
     /**
-     * Will push the element in the front of the list
+     * Push the element in the front of the list
      *
      * @param x element to be push
      */
@@ -37,9 +39,9 @@ public class MyStackDLLBImpl<E> implements MyStack<E> {
     }
 
     /**
-     * get the number of current element in the Stack
+     * Allow access to the number of elements in the stack
      *
-     * @return number of element
+     * @return number of elements
      */
     @Override
     public int numOfElems() {
@@ -47,9 +49,9 @@ public class MyStackDLLBImpl<E> implements MyStack<E> {
     }
 
     /**
-     * allow acces data to the first element of the stack
+     * Allow knowing which element will be popped next time
      *
-     * @return the data of the next element to be pop
+     * @return the data of the next element to be popped
      */
     @Override
     public E peek() {

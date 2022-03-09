@@ -7,8 +7,8 @@ public class DLinkList<E> {
 
     }
     /**
-     *Class Node with Generic Parameter
-     *Allow the connexion between every element
+     * Class Node with Generic Parameter
+     * Allow the connexion between every element
      *
      * @param <T>
      */
@@ -18,7 +18,7 @@ public class DLinkList<E> {
         Node<T> prev;
 
         /**
-         *Class constructor.
+         * Class constructor
          *
          * @param elem
          */
@@ -31,7 +31,7 @@ public class DLinkList<E> {
         /**
          * Override method
          *
-         *Allow the representation of elem.
+         * Allow the representation of elem
          *
          * @return
          */
@@ -42,7 +42,7 @@ public class DLinkList<E> {
     }
 
     /**
-     *Pointer on the first and the last element of the list.
+     * Pointer on the first and the last element of the list
      *
      */
     private Node first = null;
@@ -51,7 +51,7 @@ public class DLinkList<E> {
     private int numOfElems = 0;
 
     /**
-     *Return if the list is empty symbolized by a null number of element
+     * Return if the list is empty (symbolized by 0 number of elements)
      *
      * @return is the list empty ?
      */
@@ -60,18 +60,18 @@ public class DLinkList<E> {
     }
 
     /**
-     * Return the number of element
+     * Return the number of elements
      *
-     * @return number of element
+     * @return number of elements
      */
     public int getNumOfElems(){
         return numOfElems;
     }
 
     /**
-     * Will add a node to the List.
-     * If the list is empty symbolized by : first = null
-     * we need to update first and last pointer
+     * Will add a node to the first position of the List
+     * If the list is empty (symbolized by : first = null),
+     * We update the last position too
      *
      * We increment the number of element and update the pointer of the Node
      *
@@ -91,11 +91,11 @@ public class DLinkList<E> {
     }
 
     /**
-     *Will add a Node to the last position of the List
-     * If the list is empty symbolized by : last == null
+     * Will add a node to the last position of the List
+     * If the list is empty (symbolized by : last == null),
      * We update the first position too
      *
-     * @param e The element add to the list
+     * @param e : The data added to the list
      */
     public void addLast(E e){
         Node<E> n = new Node<>(e);
@@ -111,7 +111,7 @@ public class DLinkList<E> {
     }
 
     /**
-     * Will return the data of the first element and delet it
+     * Will return the data of the first element and delete it
      * If it's the last element of the list we update "last" to null too
      *
      * @return the data of the first elem
@@ -134,8 +134,8 @@ public class DLinkList<E> {
     }
 
     /**
-     * Will return the data of the last element
-     * If it's the last element of the list we update first too to : null
+     * Will return the data of the last element and delete it
+     * If it's the last element of the list we update "first" to null too
      *
      * @return the data of the last elem
      */
@@ -157,7 +157,7 @@ public class DLinkList<E> {
     }
 
     /**
-     * Creat a representation of the list
+     * Create a representation of the List
      *
      * @return String representation of the List
      */
@@ -178,9 +178,9 @@ public class DLinkList<E> {
     }
 
     /**
-     * Allow the acces to the data of the last element
+     * Allow the access to the data of the last element
      *
-     * TODO : make a copie of this element to protect this
+     * TODO : make a copy of this element to protect this
      *
      * @return the data of the last element
      */

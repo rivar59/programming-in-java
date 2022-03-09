@@ -20,7 +20,7 @@ class MyStackDLLBImplTest {
     }
 
     /**
-     * Creation of the astack and if it is empty
+     * Creating a list and test if it is empty
      */
     @Test
     void creation(){
@@ -53,7 +53,7 @@ class MyStackDLLBImplTest {
     }
 
     /**
-     * Just enqueue and dequeue one element
+     * Enqueue and dequeue one element
      */
     @Test
     void enqueue1andqeueue(){
@@ -64,7 +64,7 @@ class MyStackDLLBImplTest {
     }
 
     /**
-     * add enqueue and dequeue with test
+     * Add enqueue and dequeue with test
      */
     @Test
     void hardqueue(){

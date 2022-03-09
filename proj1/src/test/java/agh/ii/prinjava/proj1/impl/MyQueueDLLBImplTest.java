@@ -19,7 +19,7 @@ class MyQueueDLLBImplTest {
     }
 
     /**
-     * Creation of the list and if it is empty
+     * Creating a list and test if it is empty
      */
     @Test
     void creation(){
@@ -29,7 +29,7 @@ class MyQueueDLLBImplTest {
 
     /**
      *
-     * Add on element to the list.
+     * Add an element to the list
      *
      */
     @Test
@@ -41,7 +41,7 @@ class MyQueueDLLBImplTest {
 
     /**
      *
-     * Add on element to the list.
+     * Add an element to the list
      *
      */
     @Test
@@ -52,7 +52,7 @@ class MyQueueDLLBImplTest {
     }
 
     /**
-     * Just enqueue and dequeue one element
+     * Enqueue and dequeue one element
      */
     @Test
     void enqueue1andqeueue(){
@@ -64,7 +64,7 @@ class MyQueueDLLBImplTest {
     }
 
     /**
-     * add enqueue and dequeue with test
+     * Add enqueue and dequeue with test
      */
     @Test
     void hardqueue(){

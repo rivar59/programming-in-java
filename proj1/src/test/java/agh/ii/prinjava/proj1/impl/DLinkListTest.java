@@ -42,8 +42,8 @@ class DLinkListTest {
     }
 
     /**
-     *Add one element in the front and remove from the last position
      *
+     * Add one element in the front and remove it from the last position
      */
     @Test
     void pushFrontAndRemoveLast() {
@@ -56,9 +56,9 @@ class DLinkListTest {
 
     /**
      *
-     * We push 3 elements and verify the number of element
-     * the last element remove from last position
-     * the new number of element
+     * We push 3 elements and verify the number of elements
+     * The last element is removed from the last position
+     * Checking the number of elements
      *
      */
     @Test
@@ -75,7 +75,8 @@ class DLinkListTest {
 
     /**
      *
-     * We push 3 elements and remove this and see if the list is empty
+     * We push 3 elements and then remove them
+     * Checking if the list is empty
      *
      */
     @Test
@@ -93,7 +94,7 @@ class DLinkListTest {
 
     /**
      *
-     * We push in the back of the list and remove from it
+     * We push an element in the back of the list and remove it from there
      *
      */
     @Test
@@ -158,7 +159,7 @@ class DLinkListTest {
 
     /**
      *
-     * We see the String represnetation with full add last
+     * We see the String representation with full add last
      *
      */
     @Test
@@ -174,7 +175,7 @@ class DLinkListTest {
 
     /**
      *
-     * add some elements in different order and see the string representation
+     * Add some elements in different orders and see the String representation
      *
      */
     @Test
@@ -200,6 +201,4 @@ class DLinkListTest {
         System.out.println(dl.getNumOfElems());
         System.out.println(dl.toString());
     }
-
-
 }

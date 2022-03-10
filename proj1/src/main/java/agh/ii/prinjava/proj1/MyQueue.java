@@ -10,7 +10,7 @@ import agh.ii.prinjava.proj1.impl.MyQueueDLLBImpl;
  */
 public interface MyQueue<E> {
     /**
-     * add an element to the Queue
+     * Add an element to the Queue
      *
      * @param x
      */
@@ -33,16 +33,16 @@ public interface MyQueue<E> {
     }
 
     /**
-     * return the number of element of the Queue
+     * Return the number of elements of the Queue
      *
-     *  @return number of element of the Queue
+     *  @return number of elements of the Queue
      */
     int numOfElems();
 
     /**
-     * return the data of the next element to be dequeue
+     * Return the data of the next element to be dequeued
      *
-     * @return data of the next element to be enqueue
+     * @return data of the next element to be enqueued
      */
     E peek();
 

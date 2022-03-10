@@ -30,7 +30,7 @@ class MyStackDLLBImplTest {
 
     /**
      *
-     * Add on element to the Stack and check the number
+     * Add on element to the Stack and check the number of elements
      *
      */
     @Test
@@ -42,7 +42,7 @@ class MyStackDLLBImplTest {
 
     /**
      *
-     * Add on element to the Stack and got it
+     * Add on element to the Stack and peek it
      *
      */
     @Test
@@ -53,7 +53,7 @@ class MyStackDLLBImplTest {
     }
 
     /**
-     * Enqueue and dequeue one element
+     * Push and pop one element
      */
     @Test
     void enqueue1andqeueue(){

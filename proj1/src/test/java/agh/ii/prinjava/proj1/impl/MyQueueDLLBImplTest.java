@@ -41,7 +41,7 @@ class MyQueueDLLBImplTest {
 
     /**
      *
-     * Add an element to the list
+     * Add an element to the list and peek
      *
      */
     @Test

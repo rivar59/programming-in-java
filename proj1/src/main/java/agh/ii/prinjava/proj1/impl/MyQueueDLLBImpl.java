@@ -30,7 +30,7 @@ public class MyQueueDLLBImpl<E> implements MyQueue<E> {
     }
 
     /**
-     * Dequeue the first element which was enqueued
+     * Dequeue the first element which was enqueued from the end of the List : elems
      *
      * @return the dequeued element
      */
@@ -50,9 +50,9 @@ public class MyQueueDLLBImpl<E> implements MyQueue<E> {
     }
 
     /**
-     * Allow knowing which element will be enqueued next time
+     * Allow knowing which element will be dequeued next time
      *
-     * @return the data of the next element to be enqueued
+     * @return the data of the next element to be dequeued
      */
     @Override
     public E peek() {

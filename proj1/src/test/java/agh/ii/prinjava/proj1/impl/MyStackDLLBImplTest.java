@@ -4,6 +4,7 @@ import agh.ii.prinjava.proj1.MyQueue;
 import agh.ii.prinjava.proj1.MyStack;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -30,11 +31,11 @@ class MyStackDLLBImplTest {
 
     /**
      *
-     * Add on element to the Stack and check the number
+     * Add on element to the Stack and check the number of elements
      *
      */
     @Test
-    void enqueue1element(){
+    void enqueue1Element(){
         MyStack<Integer> s = MyStack.create();
         s.push(10);
         assertEquals(1,s.numOfElems());
@@ -42,7 +43,7 @@ class MyStackDLLBImplTest {
 
     /**
      *
-     * Add on element to the Stack and got it
+     * Add on element to the Stack and peek it
      *
      */
     @Test
@@ -53,7 +54,7 @@ class MyStackDLLBImplTest {
     }
 
     /**
-     * Enqueue and dequeue one element
+     * Push and pop one element
      */
     @Test
     void enqueue1andqeueue(){

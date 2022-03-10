@@ -45,8 +45,8 @@ public class DLinkList<E> {
      * Pointer on the first and the last element of the list
      *
      */
-    private Node first = null;
-    private Node last = null;
+    private Node<E> first = null;
+    private Node<E> last = null;
 
     private int numOfElems = 0;
 
@@ -119,7 +119,7 @@ public class DLinkList<E> {
     public E removeFirst(){
         if (isempty())
             return null;
-        Node ret = first;
+        Node<E> ret = first;
         if (first == last) {
             last = null;
             first = null;
@@ -142,7 +142,7 @@ public class DLinkList<E> {
     public E removeLast(){
         if (isempty())
             return null;
-        Node ret = last;
+        Node<E> ret = last;
         if (last == first) {
             first = null;
             last = null;
@@ -167,7 +167,7 @@ public class DLinkList<E> {
             return "Linked list is Empty";
 
         String ret = "Linked list : \n";
-        Node n = first;
+        Node<E> n = first;
         while(n.next != null){
             ret += n.toString() + " - ";
             n = n.next;
@@ -180,7 +180,6 @@ public class DLinkList<E> {
     /**
      * Allow the access to the data of the last element
      *
-     * TODO : make a copy of this element to protect this
      *
      * @return the data of the last element
      */
@@ -193,13 +192,12 @@ public class DLinkList<E> {
     /**
      * Allow the access to the data of the first element
      *
-     * TODO : make a copy of this element to protect this
      *
      * @return the data of the first element
      */
     public E peekFirst(){
         if (!isempty())
-            return (E)first.elem;
+            return (E) first.elem;
         return null;
     }
 

@@ -19,7 +19,7 @@ public class MyStackDLLBImpl<E> implements MyStack<E> {
     }
 
     /**
-     * Pop the last element pushed in the stack
+     * Pop the last element pushed in the stack in front of the List
      *
      * @return the popped element
      */

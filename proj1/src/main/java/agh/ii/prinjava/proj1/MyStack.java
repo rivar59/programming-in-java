@@ -16,7 +16,7 @@ public interface MyStack<E> {
     E pop();
 
     /**
-     * push an element which will be the next pop
+     * Push an element which will be the next pop
      *
      * @param x
      */
@@ -32,16 +32,16 @@ public interface MyStack<E> {
     }
 
     /**
-     * Get the number of element in the list
+     * Get the number of elements in the Stack
      *
-     * @return the number of element on the Stack
+     * @return the number of elements in the Stack
      */
     int numOfElems();
 
     /**
      *  Get the data of the top element of the Stack
      *
-     * @return the data of the next element to be pop
+     * @return the data of the next element to be popped
      */
     E peek();
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="agh.ii.prinjava.proj1.impl.MyStackDLLBImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-03-11T11:30:02" hostname="DESKTOP-UVUAAVB" time="0.157">
+  <properties/>
+  <testcase name="enqueue1element()" classname="agh.ii.prinjava.proj1.impl.MyStackDLLBImplTest" time="0.126"/>
+  <testcase name="hardqueue()" classname="agh.ii.prinjava.proj1.impl.MyStackDLLBImplTest" time="0.012"/>
+  <testcase name="enqueue1andpeek()" classname="agh.ii.prinjava.proj1.impl.MyStackDLLBImplTest" time="0.003"/>
+  <testcase name="enqueue1andqeueue()" classname="agh.ii.prinjava.proj1.impl.MyStackDLLBImplTest" time="0.003"/>
+  <testcase name="creation()" classname="agh.ii.prinjava.proj1.impl.MyStackDLLBImplTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

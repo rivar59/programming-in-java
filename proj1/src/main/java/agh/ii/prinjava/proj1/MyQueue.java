@@ -10,14 +10,14 @@ import agh.ii.prinjava.proj1.impl.MyQueueDLLBImpl;
  */
 public interface MyQueue<E> {
     /**
-     * Adds an element to the Queue
+     * add an element to the Queue
      *
      * @param x
      */
     void enqueue(E x);
 
     /**
-     * Removes an element to the Queue
+     * Remove an element to the Queue
      *
      * @return E the element of the queue
      */
@@ -33,7 +33,7 @@ public interface MyQueue<E> {
     }
 
     /**
-     * Returns the number of element of the Queue
+     * return the number of element of the Queue
      *
      *  @return number of element of the Queue
      */
@@ -46,11 +46,7 @@ public interface MyQueue<E> {
      */
     E peek();
 
-    /**
-     * TODO
-     * @param <T>
-     * @return
-     */
+    /** Consider pros and cons of having a factory method in the interface */
     static <T> MyQueue<T> create() {
         return new MyQueueDLLBImpl<>();
     }

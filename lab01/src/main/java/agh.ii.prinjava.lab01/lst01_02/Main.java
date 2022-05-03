@@ -17,5 +17,17 @@ public class Main {
         //...
         richDadsKid.setUpSuccessfulCompany();
         richDadsKid.increaseWealth();
+
+            try{
+                throw new NumberFormatException();
+            }catch (RuntimeException a){
+                System.out.println("C");
+            }catch (Exception a){
+                System.out.println("D");
+            }finally {
+                System.out.println("E");
+            }
+            System.out.println("F");
+
     }
 }

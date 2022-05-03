@@ -61,7 +61,9 @@ class MovieDAOTest {
                 "Bob Clark", 1L,
                 "Otto Preminger", 2L,
                 "Peter Jackson", 3L,
-                "Jim Sheridan",1L));
+                "Jim Sheridan",1L,
+                "Milos Forman", 2L,
+                "Alan Parker", 1L));
     }
 
     /**
@@ -69,8 +71,7 @@ class MovieDAOTest {
      */
     @Test
     void numberOfMoviesPerTop10Director() {
-        Optional<Map<String, Long>> tenMostFreqDirectors = movieDAO.numberOfMoviesPerTop10Director();
-        assertThat(tenMostFreqDirectors.orElseThrow()).containsAllEntriesOf(Map.of(
+        assertThat(movieDAO.numberOfMoviesPerTop10Director().orElseThrow()).containsAllEntriesOf(Map.of(
                 "Christopher Nolan", 7L,
                 "Alfred Hitchcock", 9L,
                 "Frank Capra", 4L,
@@ -86,24 +87,25 @@ class MovieDAOTest {
 
     /**
      *Exo 5
+     * Better solution
      */
     @Test
     void moviesPerTop10Director() {
-        Optional<Map<String, Set<String>>> moviesPerDirector = movieDAO.moviesPerTop10Director();
+        final Map<String, Set<String>> moviesPerDirector = movieDAO.moviesPerTop10Director().orElseThrow();
 
-        assertThat(moviesPerDirector.orElseThrow().keySet()).containsExactlyInAnyOrder(
+        assertThat(moviesPerDirector.keySet()).containsExactlyInAnyOrder(
                 "Alfred Hitchcock", "Stanley Kubrick", "Martin Scorsese", "Steven Spielberg",
                 "Christopher Nolan", "Billy Wilder", "Quentin Tarantino", "Charles Chaplin",
                 "Ridley Scott", "Frank Capra");
 
-        assertThat(moviesPerDirector.orElseThrow().get("Christopher Nolan")).containsExactlyInAnyOrder(
+        assertThat(moviesPerDirector.get("Christopher Nolan")).containsExactlyInAnyOrder(
                 "The Dark Knight", "Inception", "Interstellar", "The Prestige", "Memento",
-                "The Dark Knight Rises"
+                "The Dark Knight Rises", "Batman Begins"
         );
 
-        assertThat(moviesPerDirector.orElseThrow().get("Billy Wilder")).containsExactlyInAnyOrder(
+        assertThat(moviesPerDirector.get("Billy Wilder")).containsExactlyInAnyOrder(
                 "Some Like It Hot", "Stalag 17", "The Apartment", "Sunset Boulevard",
-                "Witness for the Prosecution", "Double Indemnity"
+                "Witness for the Prosecution", "Double Indemnity", "The Lost Weekend"
         );
     }
 
@@ -162,13 +164,13 @@ class MovieDAOTest {
 
         assertThat(top9Actor.orElseThrow().get("Leonardo DiCaprio")).containsExactlyInAnyOrder(
                 "Django Unchained", "The Wolf of Wall Street", "Blood Diamond", "The Departed",
-                "Shutter Island", "Inception", "Catch Me If You Can"
+                "Shutter Island", "Inception", "Catch Me If You Can", "The Revenant"
         );
 
         assertThat(top9Actor.orElseThrow().get("Harrison Ford")).containsExactlyInAnyOrder(
                 "Star Wars: Episode VI - Return of the Jedi", "Indiana Jones and the Last Crusade",
                 "Star Wars: Episode IV - A New Hope", "Star Wars: Episode V - The Empire Strikes Back",
-                "Raiders of the Lost Ark", "Blade Runner"
+                "Raiders of the Lost Ark", "Blade Runner", "Star Wars: The Force Awakens"
         );
     }
 
@@ -205,11 +207,11 @@ class MovieDAOTest {
 
         assertThat(top9Actor.orElseThrow().get("Carrie Fisher, Harrison Ford")).containsExactlyInAnyOrder(
                 "Star Wars: Episode VI - Return of the Jedi", "Star Wars: Episode IV - A New Hope",
-                "Star Wars: Episode V - The Empire Strikes Back"
+                "Star Wars: Episode V - The Empire Strikes Back", "Star Wars: The Force Awakens"
         );
 
         assertThat(top9Actor.orElseThrow().get("Christian Bale, Michael Caine")).containsExactlyInAnyOrder(
-                "The Prestige", "The Dark Knight"
+                "The Prestige", "The Dark Knight", "Batman Begins"
         );
     }
 }

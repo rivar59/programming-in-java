@@ -4,6 +4,8 @@ package agh.ii.prinjava.lab01.lst01_01;
  * Encapsulation demo
  */
 public class Main {
+
+
     public static void main(String[] args) {
         HelloEncapsulation enDemo = new HelloEncapsulation(42);
 
@@ -14,4 +16,5 @@ public class Main {
         propVal++;
         enDemo.setPropVal(propVal);
     }
+
 }

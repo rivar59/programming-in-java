@@ -32,8 +32,7 @@ interface PlayWithMovies {
      * Returns the movies (only titles) in which an actor played
      */
     static Set<String> ex02(String actor) {
-        Optional<List<Movie>> movies = ImdbTop250.movies();
-        return movies
+        return ImdbTop250.movies()
                 .orElseThrow()
                 .stream()
                 .filter(m -> m.actors().contains(actor))
@@ -52,7 +51,8 @@ interface PlayWithMovies {
                 .stream()
                 .flatMap(m -> m.directors().stream())
                 .distinct()//get all directors on time
-                .collect(Collectors.toMap(d -> (String) d, d -> (long) ex01_aux(d).size()));*/
+                .collect(Collectors.toMap(d -> (String) d, d -> (long) ex01_aux(d).size()));
+        */
         return movies
                 .orElseThrow()
                 .stream()
@@ -74,12 +74,20 @@ interface PlayWithMovies {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
+    private static Map<String, Long> top5directors() {
+        return ex03()
+                .entrySet()
+                .stream()
+                .sorted((m1, m2) -> m2.getValue().compareTo(m1.getValue()))// Allow reverse order
+                .limit(10)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
 
     /**
      * Returns the movies (only titles) made by each of the 10 directors found in {@link PlayWithMovies#ex04 ex04}
      */
     static Map<String, Set<String>> ex05() {
-        return ex04()
+        return top5directors()
                 .entrySet()
                 .stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, b -> ex01(b.getKey())));
@@ -147,10 +155,10 @@ interface PlayWithMovies {
         return ex09()
                 .entrySet()
                 .stream()
-                .collect(Collectors.toMap(Map.Entry::getKey, b -> ex10_aux(b.getKey())));
+                .collect(Collectors.toMap(Map.Entry::getKey, b -> getmoviesfrom2actorsstring(b.getKey())));
     }
 
-    static Set<String> ex10_aux(String director) {//Got actor partenship like "Carrie Fisher,  "
+    private static Set<String> getmoviesfrom2actorsstring(String director) {//Got actor partenship like "Carrie Fisher,  "
         Optional<List<Movie>> movies = ImdbTop250.movies();
         return movies
                 .orElseThrow()

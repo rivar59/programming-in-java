@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"agh.ii.prinjava.proj2.dal","l":"ImdbTop250"},{"p":"agh.ii.prinjava.proj2.model","l":"Movie"},{"p":"agh.ii.prinjava.proj2.utils","l":"Utils"}];updateSearchResults();

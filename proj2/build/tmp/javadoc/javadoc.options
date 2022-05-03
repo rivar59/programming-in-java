@@ -1,0 +1,10 @@
+-classpath 'C:\\Users\\Rivar\\IdeaProjects\\programming-in-java\\proj2\\build\\classes\\java\\main;C:\\Users\\Rivar\\IdeaProjects\\programming-in-java\\proj2\\build\\resources\\main'
+-d 'C:\\Users\\Rivar\\IdeaProjects\\programming-in-java\\proj2\\build\\docs\\javadoc'
+-doctitle 'proj2 1.0-SNAPSHOT API'
+-notimestamp 
+-quiet 
+-windowtitle 'proj2 1.0-SNAPSHOT API'
+'C:\\Users\\Rivar\\IdeaProjects\\programming-in-java\\proj2\\src\\main\\java\\agh\\ii\\prinjava\\proj2\\dal\\ImdbTop250.java'
+'C:\\Users\\Rivar\\IdeaProjects\\programming-in-java\\proj2\\src\\main\\java\\agh\\ii\\prinjava\\proj2\\model\\Movie.java'
+'C:\\Users\\Rivar\\IdeaProjects\\programming-in-java\\proj2\\src\\main\\java\\agh\\ii\\prinjava\\proj2\\PlayWithMovies.java'
+'C:\\Users\\Rivar\\IdeaProjects\\programming-in-java\\proj2\\src\\main\\java\\agh\\ii\\prinjava\\proj2\\utils\\Utils.java'

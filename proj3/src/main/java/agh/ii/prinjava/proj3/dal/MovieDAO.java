@@ -2,6 +2,8 @@ package agh.ii.prinjava.proj3.dal;
 
 import java.sql.*;
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * Movie Data Access Object
@@ -22,12 +24,15 @@ public class MovieDAO {
         try (Connection con = DriverManager.getConnection(dbURL);
              PreparedStatement stmt = con.prepareStatement(MovieSQLs.moviesOfDirectorSQL)) {
             stmt.setString(1, directorName);
-            ResultSet directname = stmt.executeQuery();
+
+            return Util.getSetWithOneData(stmt.executeQuery(), "title");
+            /*
             Set<String> ret = new LinkedHashSet<>();
-            while (directname.next())
+            while (actor.next())
                 ret.add(directname.getString("title"));
 
             return Optional.of(ret);
+            */
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -41,12 +46,15 @@ public class MovieDAO {
         try (Connection con = DriverManager.getConnection(dbURL);
              PreparedStatement stmt = con.prepareStatement(MovieSQLs.moviesOfActorSQL)) {
             stmt.setString(1, actorName);
-            ResultSet actor = stmt.executeQuery();
+
+            return Util.getSetWithOneData(stmt.executeQuery(), "title");
+            /*
             Set<String> ret = new LinkedHashSet<>();
             while (actor.next())
                 ret.add(actor.getString("title"));
 
             return Optional.of(ret);
+            */
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -59,12 +67,15 @@ public class MovieDAO {
     public Optional<Map<String, Long>> numberOfMoviesPerDirector() {
         try (Connection con = DriverManager.getConnection(dbURL);
              PreparedStatement stmt = con.prepareStatement(MovieSQLs.numberOfMoviesPerDirectorSQL)) {
-            ResultSet inforequet = stmt.executeQuery();
+            return Util.mapFromRequest(stmt.executeQuery(), "director", "numOfMovies");
+            /*
             Map<String, Long> map = new HashMap<>();
             while (inforequet.next())
-                map.put(inforequet.getString("director"), inforequet.getLong("numOfMovies"));
+                map.put(inforequet.getString("director"),
+                        inforequet.getLong("numOfMovies"));
 
             return Optional.of(map);
+            */
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -77,12 +88,16 @@ public class MovieDAO {
     public Optional<Map<String, Long>> numberOfMoviesPerTop10Director() {
         try (Connection con = DriverManager.getConnection(dbURL);
              PreparedStatement stmt = con.prepareStatement(MovieSQLs.numOfMoviesPerTop10DirectorSQL)) {
-            ResultSet inforequet = stmt.executeQuery();
+
+            return Util.mapFromRequest(stmt.executeQuery(), "director", "numOfMovies");
+            /*
             Map<String, Long> map = new HashMap<>();
             while (inforequet.next())
-                map.put(inforequet.getString("director"), inforequet.getLong("numOfMovies"));
+                map.put(inforequet.getString("director"),
+                        inforequet.getLong("numOfMovies"));
 
             return Optional.of(map);
+            */
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -95,18 +110,23 @@ public class MovieDAO {
     public Optional<Map<String, Set<String>>> moviesPerTop10Director() {
         try (Connection con = DriverManager.getConnection(dbURL);
              PreparedStatement stmt = con.prepareStatement(MovieSQLs.moviesOfTop10DirectorsSQL)) {
-            ResultSet inforequet = stmt.executeQuery();
+            return Util.BuildListOfMoviesByPeople(stmt.executeQuery(), "director");
+            /*
             Map<String, Set<String>> ret = new HashMap<>();
             while (inforequet.next()){
                 Set<String> map_set = new HashSet();
-                for (int i = 0;  i < inforequet.getInt("numOfMovies") - 1; i++){
+                int NumberOfMovieByADirector = inforequet.getInt("numOfMovies");
+                for (int i = 0;  i <  NumberOfMovieByADirector; i++){
                     map_set.add(inforequet.getString("title"));
-                    inforequet.next();
+                    if (i != NumberOfMovieByADirector - 1)
+                        inforequet.next();
                 }
                 ret.put(inforequet.getString("director"), map_set);
             }
 
             return Optional.of(ret);
+
+             */
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -119,12 +139,14 @@ public class MovieDAO {
     public Optional<Map<String, Long>> numberOfMoviesPerActor() {
         try (Connection con = DriverManager.getConnection(dbURL);
              PreparedStatement stmt = con.prepareStatement(MovieSQLs.numberOfMoviesPerActorSQL)) {
-            ResultSet inforequet = stmt.executeQuery();
+            return Util.mapFromRequest(stmt.executeQuery(), "actor", "numOfMovies");
+            /*
             Map<String, Long> map = new HashMap<>();
             while (inforequet.next())
                 map.put(inforequet.getString("actor"), inforequet.getLong("numOfMovies"));
 
             return Optional.of(map);
+             */
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -137,12 +159,14 @@ public class MovieDAO {
     public Optional<Map<String, Long>> numberOfMoviesPerTop9Actor() {
         try (Connection con = DriverManager.getConnection(dbURL);
              PreparedStatement stmt = con.prepareStatement(MovieSQLs.numOfMoviesPerTop9ActorSQL)) {
-            ResultSet inforequet = stmt.executeQuery();
+            return Util.mapFromRequest(stmt.executeQuery(), "actor", "numOfMovies");
+            /*
             Map<String, Long> map = new HashMap<>();
             while (inforequet.next())
                 map.put(inforequet.getString("actor"), inforequet.getLong("numOfMovies"));
 
             return Optional.of(map);
+             */
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -153,20 +177,27 @@ public class MovieDAO {
      * ex08 - the movies (only titles) of each of the 9 actors
      */
     public Optional<Map<String, Set<String>>> moviesPerTop9Actor() {
+
         try (Connection con = DriverManager.getConnection(dbURL);
              PreparedStatement stmt = con.prepareStatement(MovieSQLs.moviesOfTop9ActorSQL)) {
-            ResultSet inforequet = stmt.executeQuery();
+            return Util.BuildListOfMoviesByPeople(stmt.executeQuery(), "actor");
+
+            /*
             Map<String, Set<String>> ret = new HashMap<>();
             while (inforequet.next()){
                 Set<String> map_set = new HashSet();
-                for (int i = 0;  i < inforequet.getInt("numOfMovies") - 1; i++){
+                int NumberOfMovieByActor = inforequet.getInt("numOfMovies");
+                for (int i = 0;  i <  NumberOfMovieByActor; i++){
                     map_set.add(inforequet.getString("title"));
-                    inforequet.next();
+                    if (i != NumberOfMovieByActor - 1)
+                        inforequet.next();
                 }
                 ret.put(inforequet.getString("actor"), map_set);
             }
 
             return Optional.of(ret);
+
+             */
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -200,13 +231,15 @@ public class MovieDAO {
             ResultSet inforequet = stmt.executeQuery();
             Map<String, Set<String>> ret = new HashMap<>();
             while (inforequet.next()){
-                Set<String> map_set = new HashSet();
-                for (int i = 0;  i < inforequet.getInt("cnt")-1; i++){
-                    map_set.add(inforequet.getString("title"));
-                    inforequet.next();
+                Set<String> setFromPartership = new HashSet();
+                int numberOfMovieByDuoActor = inforequet.getInt("cnt");
+                for (int i = 0;  i <  numberOfMovieByDuoActor; i++){
+                    setFromPartership.add(inforequet.getString("title"));
+                    if (i != numberOfMovieByDuoActor - 1)
+                        inforequet.next();
                 }
-
-                ret.put((inforequet.getString("actor1")  + ", " + inforequet.getString("actor2")), map_set);
+                setFromPartership.add(inforequet.getString("title"));
+                ret.put((inforequet.getString("actor1")  + ", " + inforequet.getString("actor2")), setFromPartership);
             }
 
             return Optional.of(ret);
@@ -215,6 +248,72 @@ public class MovieDAO {
         }
         return Optional.empty();
     }
+}
+
+/**
+ * Avoid the redondance of the code
+ * By making some interface usefull
+ */
+interface Util{
+
+    public static Optional<Set<String>> getSetWithOneData(ResultSet directname, String str) throws SQLException{
+        Set<String> ret = new LinkedHashSet<>();
+        while (directname.next())
+            ret.add(directname.getString(str));
+
+        return Optional.of(ret);
+    }
+
+    public static Optional<Map<String,Long>> mapFromRequest(ResultSet inforequet, String str1, String str2)
+            throws SQLException{
+        Map<String, Long> map = new HashMap<>();
+        while (inforequet.next())
+            map.put(inforequet.getString(str1),
+                    inforequet.getLong(str2));
+
+        return Optional.of(map);
+    }
+
+    public static Optional<Map<String, Set<String>>> BuildListOfMoviesByPeople
+            (ResultSet inforequet, String name) throws SQLException{
+        Map<String, Set<String>> ret = new HashMap<>();
+        while (inforequet.next()){
+            Set<String> map_set = new HashSet();
+            int NumberOfMovie = inforequet.getInt("numOfMovies");
+            for (int i = 0;  i <  NumberOfMovie; i++){
+                map_set.add(inforequet.getString("title"));
+                if (i != NumberOfMovie - 1)
+                    inforequet.next();
+            }
+            ret.put(inforequet.getString(name), map_set);
+        }
+
+        return Optional.of(ret);
+    }
+
+
+
+    public static <T> Optional<T> executeQueryAndGetResult(String dbURL, String query, Consumer<PreparedStatement> setParamsFunction, Function<ResultSet, Optional<T>> getResultFromSetFunction) {
+    try (Connection con = DriverManager.getConnection(dbURL)) {
+        // prepare statements with generic params
+        PreparedStatement stmt = con.prepareStatement(query);
+        setParamsFunction.accept(stmt);
+
+        // execute query
+        ResultSet set = stmt.executeQuery();
+
+        // build result from result set
+        Optional<T> result = getResultFromSetFunction.apply(set);
+        return result;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return Optional.empty();
+    }
+}/*
+    Exo 3
+        return Util.executeQueryAndGetResult(dbURL, MovieSQLs.moviesOfTop9ActorSQL,
+                    set -> Util.GetSetWithOneData(inforequet, "title"));
+     */
 }
 
 class MovieSQLs {
